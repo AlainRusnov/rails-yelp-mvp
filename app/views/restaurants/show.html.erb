@@ -4,3 +4,11 @@
 <p><strong>Category:</strong> <%= @restaurant.category %></p>
 
 <button><%= link_to 'Restaurant List', restaurants_path %></button>
+
+<button><%= link_to "Add Review", new_restaurant_review_path(@restaurant) %></button>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= '⭐️' * review.rating %><%= review.content %></li>
+  <% end %>
+</ul>
