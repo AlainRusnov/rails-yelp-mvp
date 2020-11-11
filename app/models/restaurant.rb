@@ -1,4 +1,4 @@
 class Restaurant < ApplicationRecord
-has_many: reviews
-validates :category, presence: ["chinese", "italian", "japanese", "french", "belgian"]
+has_many: reviews, dependent: :destroy
+validates :category, inclusion: { in: %w(chinese italian japanese french belgian) }
 end
